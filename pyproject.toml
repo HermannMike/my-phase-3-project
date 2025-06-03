@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "health_tracker_app"
+version = "0.1.0"
+authors = [
+  { name="Student", email="student@example.com" },
+]
+description = "A CLI application to track daily food intake and set nutrition goals."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT License" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "click==8.1.8",
+    "SQLAlchemy==2.0.41",
+    "psycopg2-binary==2.9.10", # Optional, but good to list if used
+    # Add other direct dependencies from requirements.txt if they are not transitive
+    # For example, typer is mentioned in PRD but not used in current cli.py
+]
+
+[project.scripts]
+myapp = "cli:cli"
+
+[tool.setuptools]
+py-modules = ["cli"]
+packages = ["health_tracker", "controlers"] # Explicitly include controlers for now
